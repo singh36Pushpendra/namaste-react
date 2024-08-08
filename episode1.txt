@@ -1,0 +1,4 @@
+read about cdn links
+What is crossorigin?
+
+React can work in the existing app, by using cdn links.
