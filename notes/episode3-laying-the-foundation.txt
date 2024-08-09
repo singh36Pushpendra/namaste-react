@@ -1,0 +1,56 @@
+npx parcel index.html
+
+In package.json added, then no need to write above cmd everytime.
+"scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  }
+
+  To run the scripts
+  npm run start -> called the script 
+  or
+  npm start
+
+  npm run build -> In production env
+
+  Facebook developers created jsx (makes easy)
+
+  jsx (jsx is not html inside javascript)
+  jsx is a html like syntax.
+  
+// Not pure javascript.(js engine will not understand this piece of code)
+// Parcel is doing the job behind the scene
+// JSX (transpiled before it reaches the JS Engine)
+const jsxHeading = <h1 id="heading">Namaste React using JSX</h1>; // Created react element using jsx.
+
+
+React Functional Component ->
+It is just a normal javascript function which returns some jsx elements.
+
+// React Functional Component
+// A function which is returning a react element.
+const HeadingComponent = () => {
+  return <h1>Namaste React Functional Component</h1>;
+};
+
+const HeadingComponent2 = () => <h1>Namaste React Functional Component</h1>;
+
+// For single stmt, can use short hand notation.
+const fn = () => true; // function is returning true,
+
+What is Component composition?
+Composing two component one and another.
+
+const HeadingComponent = () => {
+  return (
+    <div id="container">
+      <Title />
+      {/* Any js code or expression we can write inside curly braces. */}
+      <h2>{number + 100}</h2>
+      <h2>{console.log("Pushpendra Singh")}</h2>
+      <h1 className="heading">Namaste React Functional Component</h1>
+    </div>
+  );
+};
+
