@@ -1,0 +1,26 @@
+We have to do planning - first of all ->
+Food ordering app - Namaste Food
+1) Have a header
+    logo inside header
+    after logo have some links(Home, About, cart)
+
+2) Body
+    Search Bar
+    Restaurant container
+    Restaurant cards
+        have image, name, rating etc...
+    
+3) Footer
+    Copy right
+    and some links
+
+props -> short form for properties
+Just normal arguments to a function.(like passing an arguments to a function)
+
+Destructuring on fly
+{resName, cuisine} -> props
+
+Config Driven UI ->
+Our website is driven by data (using config comes from back-end)
+
+Swiggy -> used cloudinary image id
