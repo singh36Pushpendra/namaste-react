@@ -24,3 +24,17 @@ Config Driven UI ->
 Our website is driven by data (using config comes from back-end)
 
 Swiggy -> used cloudinary image id
+
+Warning: Each child in a list should have a unique "key" prop.
+Whenever we are looping, we have to give a unique key.
+
+Why specifying key?
+React does not know which new card is added, but if we add
+a unique id to component, then it will render only new component.
+otherwise it will re-render whole.
+
+react.org says
+*React itself says Index as a key is an anti-pattern.
+We should never used index as key. (Okay to use but not recommended).
+
+
