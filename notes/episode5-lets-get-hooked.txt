@@ -1,0 +1,35 @@
+React also uses js.
+The beauty of using a framework or library is it makes developer experience easy.
+
+React hooks ->
+A best practice ->
+Make separate file for separate components.
+Never ever keep any hard coded data or string into component file.
+Keep it in a Config.js, Constant.js ... inside folder like 
+utils or commons ...
+
+Folder structure ->
+Industry Convention ->
+src ->
+    components ->
+
+Some people also like to use .jsx extension.
+for typescript use .tsx
+
+What is a good way?
+.js, or .jsx no matter makes 0 difference.
+
+
+// import Header from "./components/Header.js";
+import Header from "./components/Header";
+
+can use extension over import but without extension also works.
+
+Two types of export and import
+Default export/import ->
+    export default Component;
+    import Component from "path";
+
+Named export/import ->
+    export const Component;
+    import {Component} from "path";
