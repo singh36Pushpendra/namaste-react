@@ -33,3 +33,28 @@ Default export/import ->
 Named export/import ->
     export const Component;
     import {Component} from "path";
+
+A good practice is to keep default export unless there is no two named variable.
+
+Can we use default export along with the named export?
+
+Event Handlers ->
+
+Refreshing onClick of Button.
+
+React is fast in DOM manipulation.
+
+React Hooks -> a normal JS function 
+
+Whenever a state variable updates react will re-renders our components.
+
+React Algorithm -> Uses reconciliation algorithm(also known as react fibers, come in React-16)
+DOM is like a tree ->
+res-container -> have restaurant cards
+React creates Virtual DOM not an actual DOM(which are tags(react elements)).
+Virtual DOM is representation of actual DOM.
+React Virtual DOM is nothing but a javascript object.
+
+Diff algorithm -> Finds out the difference between two virtual DOM
+                    (old and new virtual DOM)
+                    Calculate difference and then updates actual DOM.
