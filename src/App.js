@@ -21,13 +21,11 @@ import Body from "./components/Body";
  *  - Contact
  */
 
-
 // Inline style is not a prefered way.
 // We should give style as a js object.
 const styleCard = {
   backgroundColor: "#f0f0f0",
 };
-
 
 // How restaurant data come?
 // Come in form of json.

@@ -1,0 +1,53 @@
+Monolith Architecture -> Earlier developed using this.
+Earlier: API, UI code, Auth, DB, SMS inside same project
+
+Microservices Architecture -> Different services for different jobs.
+Back-End, UI, Auth, DB, SMS, Email Notification combine together forms a big app.
+separation of concerns (single responsibility principle)
+How do these services interact with each other?
+
+Namaste React is a "UI microservice".
+
+Can used different language for different services when using microservice.
+Eg like: Back-end => Java, DB => python, UI - react
+
+All services will be run in on there own specific port->
+Eg like:-
+1234 - UI
+1000 - BE
+3000 - SMS
+
+On different ports we can deploy different service->
+Eg like:-
+/ - UI
+/api - BE
+/sms - SMS
+
+How a react application will make connection to different services?
+
+How UI fetch the data from back-end using two ways?
+1) As soon as our page loads, we can make an api call, wait for data
+    to come then render it to ui.
+    Eg: Loads => API => Render
+                500ms
+
+2) As soon as the page loads, we will just render UI quickly.
+    Loads => Render => API => Render again
+            skeleton
+
+In react we will always be using 2nd approach.(Better approach gives better UX)
+React renders UI very fast.
+
+Our browsers not allowing to call from different origin and i.e., a CORS policy.
+There is a way we can get rid of CORS error.
+Allow CORS: Access-Control-Allow-Origin.
+
+CORS ->
+Same origin(domain name) can share
+Different origin 
+
+// Optional chaining
+json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+
+Spinning loader
+Render shimmer ui
