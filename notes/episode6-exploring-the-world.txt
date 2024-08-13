@@ -51,3 +51,22 @@ json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
 
 Spinning loader
 Render shimmer ui
+
+const [btnNameReact, setBtnNameReact] = useState("Login");
+How modify btnNameReact constant value?
+Will become new variable when doing setBtnNameReact(), and then
+triggers re-rendering. (uses Diff algorithm).
+
+
+We will have to tide input box 
+as soon as input changes we need to update state?
+const [searchText, setSearchText] = useState("");
+
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />

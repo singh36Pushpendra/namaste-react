@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LOGO_URL } from "../../utils/constants";
 
-export const Header = () => {
+const Header = () => {
   // btnNameReact create a new instance everytime when setBtnNameReact() called.
   const [btnNameReact, setBtnNameReact] = useState("Login");
   console.log("header render");
@@ -19,7 +19,7 @@ export const Header = () => {
           <button
             className="login"
             onClick={() => {
-              setBtnNameReact("Logout");
+              setBtnNameReact(btnNameReact == "Login" ? "Logout" : "Login");
             }}
           >
             {btnNameReact}

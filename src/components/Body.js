@@ -9,6 +9,11 @@ const Body = () => {
   // Industry standard: [listOfRestaurants, setListOfRestaurants]
   // React is constantly checking this variable.(react keeps tracking this variable)
   const [listOfRestaurants, setListOfRestaurants] = useState([]); // returns array, destructuring it on the fly.
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]); // returns array, destructuring it on the fly.
+  const [searchText, setSearchText] = useState(""); // returns array, destructuring it on the fly.
+
+  // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
+  console.log("Body rendered");
 
   // hook - useEffect()
   // Called after the rendering of component (as soon as the render cycle finish).
@@ -25,6 +30,9 @@ const Body = () => {
     const json = await data.json();
     setListOfRestaurants(
       // Optional chaining
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     console.log(
@@ -44,6 +52,31 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          {/* To track the value of the input box, need to bind the value with
+          local state variable. */}
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              // Filter the restaurant cards and update the UI.
+              // need searchText
+              const filteredRes = listOfRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurants(filteredRes);
+              console.log(searchText);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
@@ -51,7 +84,7 @@ const Body = () => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating >= 4.4
             );
-            setListOfRestaurants(filteredList);
+            setFilteredRestaurants(filteredList);
             console.log(filteredList);
           }}
         >
@@ -62,7 +95,7 @@ const Body = () => {
         {/* Restaurant Card */}
         {
           // not using keys (not acceptable) <<<<< index as key <<<<< unique id (best practice recommended)
-          listOfRestaurants?.map((restaurant) => (
+          filteredRestaurants?.map((restaurant) => (
             <RestaurantCard key={restaurant.info.id} resData={restaurant} />
           ))
         }
