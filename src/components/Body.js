@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react"; // Have to import as a named import.
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // State variable - Super powerful variable.(To make such variable we use hooks)
@@ -96,7 +97,12 @@ const Body = () => {
         {
           // not using keys (not acceptable) <<<<< index as key <<<<< unique id (best practice recommended)
           filteredRestaurants?.map((restaurant) => (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+            <Link
+              key={restaurant.info.id}
+              to={"/restaurants/" + restaurant.info.id}
+            >
+              <RestaurantCard resData={restaurant} />
+            </Link>
           ))
         }
         {/* <RestaurantCard resName="KFC" cuisine="Burger, Fast Food" /> */}

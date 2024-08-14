@@ -22,6 +22,7 @@ const Header = () => {
         <ul>
           <li>
             {/* Browser will not reload when using Link */}
+            {/* Wrapper over the anchor tag. */}
             <Link to="/">Home</Link>
           </li>
           <li>

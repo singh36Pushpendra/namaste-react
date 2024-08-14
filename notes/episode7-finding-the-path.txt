@@ -4,7 +4,7 @@ useEffect called every time after rendering of component.
 // try to keep it in the top of component always, outside of any conditional block, function which is inside component.
 const [btnNameReact, setBtnNameReact] = useState("Login");
 
-Provide 
+createBrowserRouter => Provide an information that what will happen on a specific path
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 React router DOM creates "Unexpected Application Error!"
