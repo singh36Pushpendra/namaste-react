@@ -25,4 +25,9 @@
 # React Hooks
 
 (Normal JS utility functions)
-Two very imp hooks -> - useState() - useEffect()
+Two very imp hooks -> - useState() = used to generate superpowerful state variable in react - useEffect()
+
+# Two types of routing in Web apps
+
+    - Client Side
+    - Server Side

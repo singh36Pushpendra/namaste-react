@@ -1,0 +1,31 @@
+How is useEffect hook called?
+useEffect called every time after rendering of component.
+
+// try to keep it in the top of component always, outside of any conditional block, function which is inside component.
+const [btnNameReact, setBtnNameReact] = useState("Login");
+
+Provide 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+React router DOM creates "Unexpected Application Error!"
+
+Creating links.
+Never ever use anchor tag when using react, because when we go to the page
+it refresh whole page,
+There is a way to navigate without reloading the whole page.
+using 'link' come from react-router-dom
+exactly same as anchor tag.
+
+SinglePageApplication - SPAs
+
+Two types of routing in Web applications =>
+1) Client side => do not makes network call, just load the components.
+2) Server side => makes a network call, page coming from server
+
+// next feature to build
+// Different pages for different restaurant
+
+// Dynamic Routing
+// RestaurantMenu.js
+
+// Graph QL helps dealing with over fetching (only load require data)
