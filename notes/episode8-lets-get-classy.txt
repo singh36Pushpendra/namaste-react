@@ -1,0 +1,4 @@
+lot of companies working on older projects which uses class based components.
+So we should know, it will tell how lifecycle of class based components work.
+
+state variables in a class based components.
