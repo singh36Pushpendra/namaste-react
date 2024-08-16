@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const Header = () => {
   // btnNameReact create a new instance everytime when setBtnNameReact() called.
   const [btnNameReact, setBtnNameReact] = useState("Login");
+
+  const onlineStatus = useOnlineStatus();
   console.log("header render");
 
   // if no dependency array => useEffect is called on every render!
@@ -20,6 +23,7 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
           <li>
             {/* Browser will not reload when using Link */}
             {/* Wrapper over the anchor tag. */}
@@ -30,6 +34,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
           <li>Cart</li>
           <button

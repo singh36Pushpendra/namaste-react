@@ -1,0 +1,27 @@
+Custom Hooks:-
+
+Single responsibility principle:-
+
+Maintaining our code into modular fashion:-
+Breaking code into small-small modules(components, functions...), makes testing easy
+
+How to apply single responsibility principle:-
+No any hard rule but just keeping component as light as possible, makes clean, readable code.
+
+How to create our own custom hooks?
+Hooks: Hooks are like utility functions.
+
+Separate file for Separate hook - good convention to follow
+always start with 'use' prefix -> React understands that
+recommended convention: file name = hook name 
+
+linters -> restrict to convention of library.
+
+Same things to break down app into small chunks.
+(Logical separation of bundles)
+App Chunking
+Code Splitting
+Dynamic Bundling
+
+lazy loading or on demand loading
+for Grocery.js
