@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // React uses a big one object and put all the object as in state variable of class based components.
 const User = ({ name }) => {
   const [count] = useState(0);
   const [count2] = useState(1);
+
+  useEffect(() => {
+    // API calls
+  }, []);
   return (
     <div className="user-card">
       <h1>Count = {count}</h1>

@@ -74,3 +74,5 @@ but may or may not work for other.
     "last 2 Chrome version",
     "last 2 Firefox version"
   ]
+
+Made production ready configuration till here.

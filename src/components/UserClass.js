@@ -10,33 +10,48 @@ class UserClass extends React.Component {
     // This is the best place to receive props and create state variables.
     super(props);
     this.state = {
-      count: 0,
-      count2: 0,
-      count3: 0,
-      count4: 0,
+      userInfo: {
+        name: "Myname",
+        location: "default",
+      },
     };
-    console.log(props);
+    console.log(this.props.name + "Child Constructor");
+  }
+
+  // After updating the DOM and refs.
+  // Called after mounting (after render method)
+  // It is used to make API calls
+  // Why?: Because after rendering only we wan't to call
+  // React will batch the render phase, commit phase it do optimization.
+  async componentDidMount() {
+    console.log(this.props.name + "Child Component Did Mount");
+
+    const data = await fetch("https://api.github.com/users/singh36Pushpendra");
+    const json = await data.json();
+
+    // after setting of state variable react triggers the render again
+    // (triggers the reconciliation in update cycle)
+    this.setState({
+      userInfo: json,
+    });
+    console.log(json);
+  }
+
+  componentDidUpdate() {
+    console.log(this.props.name + "Child component Did Update");
+  }
+
+  // Just before Unmount(When the component will disappear or removed from the page)
+  componentWillUnmount() {
+    console.log("Child component Will Unmount");
   }
   render() {
-    const { name, location } = this.props;
-    const { count, count2 } = this.state;
+    console.log(this.props.name + "Child Render");
+    const { name, location, avatar_url } = this.state.userInfo;
     return (
       <div className="user-card">
         {/* Always have to use this keyword */}
-        <h1>Count: {count}</h1>
-        <h1>Count2: {count2}</h1>
-        <button
-          onClick={() => {
-            // Never updates state variable directly.
-            this.setState({
-              // pass object here which contains the update value of the variable
-              count: this.state.count + 1,
-              count2: this.state.count2 + 1,
-            });
-          }}
-        >
-          Increase Count
-        </button>
+        <img src={avatar_url} />
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
         <h4>Contact: singh36Pushpendra</h4>

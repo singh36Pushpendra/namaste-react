@@ -2,3 +2,25 @@ lot of companies working on older projects which uses class based components.
 So we should know, it will tell how lifecycle of class based components work.
 
 state variables in a class based components.
+
+How the component is putting or mounting(loading) onto the web page
+lifecycle of react class based component ->
+
+When there are multiple children instances of a class then:
+Parent Constructor
+Parent Render
+Pushpendra (Class)Child Constructor
+Pushpendra (Class)Child Render
+Elon Musk (Class)Child Constructor
+Elon Musk (Class)Child Render
+// <till here DOM updated - In single batch>
+
+Pushpendra (Class)Child Component Did Mount
+Elon Musk (Class)Child Component Did Mount
+Parent Component Did Mount
+
+Two phases:-
+Render phase:- constructor, render called
+Once the render phase is completed,
+then commit phase happen for first child and then second child
+Commit phase:- componentDidMount
