@@ -22,6 +22,19 @@ Same things to break down app into small chunks.
 App Chunking
 Code Splitting
 Dynamic Bundling
+lazy loading => Will not load the code for grocery, when go to the link then
+                only it will load.
 
 lazy loading or on demand loading
 for Grocery.js
+
+Creating a separate bundle for Grocery.
+
+react tries to render grocery but
+state causes the error when using lazy loading:
+Error: A component suspended while responding to synchronous input.
+ This will cause the UI to be replaced with a loading indicator.
+  To fix, updates that suspend should be wrapped with startTransition.
+
+To handle this error we need to wrap our Grocery component
+with Suspense component.
