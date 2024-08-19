@@ -62,19 +62,20 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-4 p-4">
           {/* To track the value of the input box, need to bind the value with
           local state variable. */}
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+            className="px-4 py-2 bg-green-100 m-4 rounded-lg"
             onClick={() => {
               // Filter the restaurant cards and update the UI.
               // need searchText
@@ -88,21 +89,23 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            // Filter logic here
-            const filteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating >= 4.4
-            );
-            setFilteredRestaurants(filteredList);
-            console.log(filteredList);
-          }}
-        >
-          Top Rated Restaurant
-        </button>
+        <div className="search m-4 p-4 flex items-center">
+          <button
+            className="px-4 py-2 bg-gray-100 rounded-lg"
+            onClick={() => {
+              // Filter logic here
+              const filteredList = listOfRestaurants.filter(
+                (res) => res.info.avgRating >= 4.4
+              );
+              setFilteredRestaurants(filteredList);
+              console.log(filteredList);
+            }}
+          >
+            Top Rated Restaurant
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {/* Restaurant Card */}
         {
           // not using keys (not acceptable) <<<<< index as key <<<<< unique id (best practice recommended)

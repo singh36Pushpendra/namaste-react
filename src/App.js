@@ -38,8 +38,8 @@ const styleCard = {
 // top level component
 
 // lazy loading or Chunking or Code Splitting or dynamic bundling, import
-// or code splitting or on demand loading
-// import is not above what we declared
+// or on demand loading
+// below import is not above what we declared
 // even it is a function, it will take the
 // path of grocery component.
 // using lazy function we are importing, no need above declaration

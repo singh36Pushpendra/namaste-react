@@ -1,0 +1,35 @@
+Going to make our app beautiful,
+How to add css and what are various ways?
+
+1) First way -> in css file have classes in jsx
+
+read about scss, sass?
+
+2) Sass -> add some super powers to css writing css will become easy.
+    not recommended way.
+
+3) Using Styled-component, lot of big companies use.
+
+4) Using libraries and frameworks -> material ui -> react component library
+                            already had pre-build css inside it.
+    
+5) We learn using Tellwind css.
+
+More CSS libraries or frameworks:
+styled-components
+material-ui
+bootstrap
+chakra-ui
+ant-design
+
+# We learn using Tellwind css.
+Generic CSS framework
+
+PostCSS - a tool for transforming CSS with JavaScript
+
+tailwind.config.js -> configuration file for tailwind
+
+tailwind css gives you classname automatically what you want to use.
+
+tailwind is light weight.
+tailwind only include the css that is required.(what we are using)
