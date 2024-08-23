@@ -1,8 +1,16 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react"; // Have to import as a named import.
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+
+function getListOfRestaurants(cards) {
+  const restaurants = [];
+  for (let i = 3; i < cards.length; i++) {
+    restaurants[i - 3] = cards[i]?.card?.card;
+  }
+  return restaurants;
+}
 
 const Body = () => {
   // State variable - Super powerful variable.(To make such variable we use hooks)
@@ -13,6 +21,8 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]); // returns array, destructuring it on the fly.
   const [filteredRestaurants, setFilteredRestaurants] = useState([]); // returns array, destructuring it on the fly.
   const [searchText, setSearchText] = useState(""); // returns array, destructuring it on the fly.
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   // Whenever state variables update, react triggers a reconciliation cycle(re-renders the component)
   console.log("Body rendered");
@@ -27,20 +37,18 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(
       // returns a Promise
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&collection=80424&tags=layout_CCS_Dosa&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
     ); // fetch data from the API (using browsers API fetch
     const json = await data.json();
+    console.log(json.data.cards);
+
+    const listOfRestaurant = getListOfRestaurants(json?.data?.cards);
     setListOfRestaurants(
       // Optional chaining
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      listOfRestaurant
     );
-    setFilteredRestaurants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    console.log(
-      // Not a good way
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    );
+    setFilteredRestaurants(listOfRestaurant);
+    console.log(listOfRestaurant);
   };
 
   const onlineStatus = useOnlineStatus();
@@ -114,7 +122,12 @@ const Body = () => {
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} />
+              {/* if the restaurant is promoted then add a promoted label to it */}
+              {restaurant?.info?.promoted ? (
+                <RestaurantCardPromoted resData={restaurant} />
+              ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
             </Link>
           ))
         }

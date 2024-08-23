@@ -1,4 +1,4 @@
-import { CDN_URL } from "../../utils/constants";
+import { FOOD_CDN_URL } from "../../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
@@ -16,7 +16,7 @@ const RestaurantCard = (props) => {
     >
       <img
         className="rounded-lg"
-        src={CDN_URL + cloudinaryImageId}
+        src={FOOD_CDN_URL + cloudinaryImageId}
         alt="res-logo"
       />
       <h3 className="font-bold py-4 text-xl">{name}</h3>
@@ -26,6 +26,23 @@ const RestaurantCard = (props) => {
       <h4>{deliveryTime} minutes</h4>
     </div>
   );
+};
+
+// Higher order component
+// input - RestaurantCard => RestaurantCardPromoted
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    // new component we are returning, will be having promoted label on top of it.
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">
+          Promoted
+        </label>
+        {/* spread operator '...' */}
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

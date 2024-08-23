@@ -1,0 +1,15 @@
+Higher order component is a function that takes a
+component and returns a component(after adding some extra
+features to it)
+(enhances component and returns it)
+
+To manage data:
+UI layer is powered by data layer.
+UI layer consist of jsx mostly.
+Data layer: state, props etc. we used.
+
+Controlled and Uncontrolled components in React
+Controlled component -> which does not manages any state.
+Uncontrolled component -> manage its own state.
+
+Lifting the state up.
