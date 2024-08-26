@@ -13,3 +13,38 @@ Controlled component -> which does not manages any state.
 Uncontrolled component -> manage its own state.
 
 Lifting the state up.
+
+Props drilling ->
+Passing data from one to other component.
+One way binding in react, data flows from parent to child.
+
+Global data -> any place how we can access data -> 
+like Logged in user info, etc...
+1) One way to avoid props drilling using React Context->
+
+Should we keep all the data in the context?
+Only the data which can be used in the multiple places.
+
+In class based components we do not have hooks, we can't use
+useContext., then how we access?
+
+// Providing to whole app.
+    // Overriding the default value of context(UserContext)
+// Will only provide value to the Header component.
+    <div className="app">
+      <UserContext.Provider value={{ loggedInUser: userName }}>
+        <Header />
+      </UserContext.Provider>
+      {/* Whenever there is a change in the path, outlet is getting filled with the component accordingly. */}
+      <Outlet />
+    </div>
+
+2) Using Redux store (external library), not inside react
+    We have to do -> "npx install redux" to install it.
+
+When to use ->
+For small app we can use react context.
+We can build large app also using react context only.
+
+Redux being an industry pattern (works in a different way)
+works in a scalable way.

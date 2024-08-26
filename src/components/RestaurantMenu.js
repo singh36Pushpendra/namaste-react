@@ -6,6 +6,9 @@ import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
+
+  const dummy = "dummy data";
+
   console.log(useParams());
   const resInfo = useRestaurantMenu(resId);
 
@@ -50,6 +53,7 @@ const RestaurantMenu = () => {
           data={category?.card?.card}
           showItems={index === showIndex ? true : false}
           setShowIndex={() => setShowIndex(index)}
+          dummy={dummy}
         />
       ))}
 

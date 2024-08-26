@@ -15,7 +15,7 @@ class UserClass extends React.Component {
         location: "default",
       },
     };
-    console.log(this.props.name + "Child Constructor");
+    // console.log(this.props.name + "Child Constructor");
   }
 
   // After updating the DOM and refs.
@@ -24,7 +24,7 @@ class UserClass extends React.Component {
   // Why?: Because after rendering only we wan't to call
   // React will batch the render phase, commit phase it do optimization.
   async componentDidMount() {
-    console.log(this.props.name + "Child Component Did Mount");
+    // console.log(this.props.name + "Child Component Did Mount");
 
     const data = await fetch("https://api.github.com/users/singh36Pushpendra");
     const json = await data.json();
@@ -34,19 +34,19 @@ class UserClass extends React.Component {
     this.setState({
       userInfo: json,
     });
-    console.log(json);
+    // console.log(json);
   }
 
   componentDidUpdate() {
-    console.log(this.props.name + "Child component Did Update");
+    // console.log(this.props.name + "Child component Did Update");
   }
 
   // Just before Unmount(When the component will disappear or removed from the page)
   componentWillUnmount() {
-    console.log("Child component Will Unmount");
+    // console.log("Child component Will Unmount");
   }
   render() {
-    console.log(this.props.name + "Child Render");
+    // console.log(this.props.name + "Child Render");
     const { name, location, avatar_url } = this.state.userInfo;
     return (
       <div className="user-card">

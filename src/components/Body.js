@@ -1,8 +1,9 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
-import { useEffect, useState } from "react"; // Have to import as a named import.
+import { useEffect, useState, useContext } from "react"; // Have to import as a named import.
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import UserContext from "../../utils/UserContext";
 
 function getListOfRestaurants(cards) {
   const restaurants = [];
@@ -65,6 +66,7 @@ const Body = () => {
   //   return <Shimmer />;
   // }
 
+  const { loggedInUser, setUserName } = useContext(UserContext);
   // Using ternary operator
   return listOfRestaurants.length == 0 ? (
     <Shimmer />
@@ -98,19 +100,12 @@ const Body = () => {
           </button>
         </div>
         <div className="search m-4 p-4 flex items-center">
-          <button
-            className="px-4 py-2 bg-gray-100 rounded-lg"
-            onClick={() => {
-              // Filter logic here
-              const filteredList = listOfRestaurants.filter(
-                (res) => res.info.avgRating >= 4.4
-              );
-              setFilteredRestaurants(filteredList);
-              console.log(filteredList);
-            }}
-          >
-            Top Rated Restaurant
-          </button>
+          <label>UserName :</label>
+          <input
+            className="border border-black"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
       </div>
       <div className="flex flex-wrap">

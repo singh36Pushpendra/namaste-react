@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react"; // Suspense is a component which comes from React.
+import React, { lazy, Suspense, useEffect, useState } from "react"; // Suspense is a component which comes from React.
 import ReactDOM from "react-dom/client";
 // import Header from "./components/Header.js";
 import Header from "./components/Header";
@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "../utils/UserContext";
 
 /**
  * Header
@@ -49,12 +50,28 @@ const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  // authentication
+  useEffect(() => {
+    // Make an API call and need username and password.
+    const data = {
+      name: "Pushpendra Singh",
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
-    <div className="app">
-      <Header />
-      {/* Whenever there is a change in the path, outlet is getting filled with the component accordingly. */}
-      <Outlet />
-    </div>
+    // Providing to whole app.
+    // Overriding the default value of context(UserContext)
+    // Put in setUserName to modify itself.
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app">
+        <Header />
+        {/* Whenever there is a change in the path, outlet is getting filled with the component accordingly. */}
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

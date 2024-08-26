@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { LOGO_URL } from "../../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import UserContext from "../../utils/UserContext";
 
 const Header = () => {
   // btnNameReact create a new instance everytime when setBtnNameReact() called.
@@ -9,6 +10,9 @@ const Header = () => {
 
   const onlineStatus = useOnlineStatus();
   console.log("header render");
+
+  const { loggedInUser } = useContext(UserContext);
+  console.log(loggedInUser);
 
   // if no dependency array => useEffect is called on every render!
   // if the dependency array is empty => useEffect is called on initial render and just once
@@ -47,6 +51,7 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
+          <li className="px-4 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>

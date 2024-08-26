@@ -1,4 +1,4 @@
-const ItemList = ({ items }) => {
+const ItemList = ({ items, dummy }) => {
   return (
     <div>
       {items.map((item) => (

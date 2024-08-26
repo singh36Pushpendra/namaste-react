@@ -1,6 +1,6 @@
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
+const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
   console.log(data);
   const handleClick = () => {
     setShowIndex();
@@ -19,7 +19,9 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
           <span>🔽</span>
         </div>
 
-        {showItems && <ItemList items={data?.categories[0]?.itemCards} />}
+        {showItems && (
+          <ItemList items={data?.categories[0]?.itemCards} dummy={dummy} />
+        )}
       </div>
       {/* Accordion Body */}
     </div>
