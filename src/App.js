@@ -9,6 +9,9 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "../utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "../utils/appStore";
+import Cart from "./components/Cart";
 
 /**
  * Header
@@ -65,13 +68,16 @@ const AppLayout = () => {
     // Providing to whole app.
     // Overriding the default value of context(UserContext)
     // Put in setUserName to modify itself.
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="app">
-        <Header />
-        {/* Whenever there is a change in the path, outlet is getting filled with the component accordingly. */}
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    // Just like context provider we have a redux app store provider.
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          {/* Whenever there is a change in the path, outlet is getting filled with the component accordingly. */}
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -112,6 +118,10 @@ const appRouter = createBrowserRouter([
         // every restaurant has its unique id: resId
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

@@ -1,0 +1,43 @@
+Redux is not mandatory -> For large apps, not for mid level, or small apps.
+
+Redux is seperate lib.
+React is seperate lib.
+
+Zustand is another lib doing same thing.
+
+Redux ->
+Also have redux-dev-tool just like react-dev-tool
+
+Redux can work with other lib and frameworks as well, it offers state management.
+heavily used with React.
+
+Redux -> Earlier different way simplified with time.
+React-redux(vanilla redux) - traditional way
+Redux-toolkit - standard way
+
+Let us build a Cart flow
+
+Redux -> maintains a very big object for the states in its store.
+    Slices of a redux store -> small portion of redux store (have multiple Slices)
+    Eg: for a cart data we create a seperate slice,
+        for logged in user info, for themes and logo or user cart etc...
+
+Redux says: You cannot directly modify your state, there is a way.
+
+how to write data:
+When you click on the add button of cart it dispatches an action. => It calls a function(known as reducer function) => and then function modifies the cart.(which updates the slice of a redux store).
+
+how to read data:
+(For that we use a Selector to read the data from our store.)
+use selector(phenomenon of using known as subscribing(means sync with the store) the store) => gives data (automatically updated cart)
+
+Created appStore inside utils folder
+We need to provide our store to our application.
+We can use seperate folder(package) for our redux app store.
+
+A reducer can be a combination of multiple reducers.
+
+In older Redux(vanilla redux) => Don't mutate state
+
+Redux uses immer.
+Takes existing state, original state find the diff, gets the new state.
