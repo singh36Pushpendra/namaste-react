@@ -40,3 +40,19 @@ Two very imp hooks -> - useState() = used to generate superpowerful state variab
     - Slice (cartSlice)
     - dispatch action
     - Selector
+
+# Types of testing (developer)
+
+    - Unit Testing
+    - Integration Testing
+    - End to End Testing - e2e testing
+
+# Setting up Testing in our app
+
+    - Install React Testing library
+    - Installed jest
+    - Installed Babel dependencies which are required when we use jest along with Babel.
+    - Configure Babel (babel.config.js)
+    - Configure Parcel Config file to disable default babel transpilation.
+    - Jest configuration (npx test --init)
+    - Install jsdom library

@@ -1,0 +1,39 @@
+What is the importance of test cases?
+How many types of testing.
+
+Developer testing
+
+Developer can do two types of testing:
+1) Manual testing
+2) Writing test cases.
+
+1) Unit Testing -> testing one unit or one component in isolation.
+
+2) Integration Testing -> testing integration of the components.
+
+3) End to End Testing -> Simulating what user do throughout the app.
+                        (requires different types of tools)
+
+As a Developer we are majorly concern about the first two testing.
+(Unit, Integration).
+
+Testing lib already come Along with create-react-app(if project created using this).
+But we used Parcel.
+
+We need both React testing and Jest testing.
+Jest is a different testing lib.
+
+npx jest --init
+
+jsdom -> test cases does not run on browser, they need an
+        environment for that we use jsdom.
+
+npm install --save-dev jest-environment-jsdom
+
+All below files are considered as testing
+files:
+Headers.test.js
+Headers.spec.js
+Headers.spec.ts
+
+__ = dunder (two underscores)
